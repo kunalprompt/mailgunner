@@ -13,7 +13,8 @@ def send_simple_message():
     return requests.post(
         environ["MAILGUN-URL"],
         auth=("api", environ["API-KEY"]),
-        data={"from": "{} {}".format("Your Name", environ["MAILGUN@SANDBOXID.MAILGUN.ORG"]),
+        data={"from": "{} {}".format("Your Name",
+                                     environ["MAILGUN@SANDBOXID.MAILGUN.ORG"]),
               "to": [environ["EMAIL-TO"]],
               "subject": "Hello",
               "text": "Testing Mailgun awesomeness!"})
@@ -24,7 +25,9 @@ def send_complex_message():
     	auth=("api", environ["API-KEY"]),
         files=[("inline", open("templates/logo.gif")),
         		("attachment", open("return_policy.txt"))],
-        data={"from": "{} {}".format("Your Name", environ["MAILGUN@SANDBOXID.MAILGUN.ORG"]),
+        data={"from": "{} {}".format(
+                        "Your Name",
+                        environ["MAILGUN@SANDBOXID.MAILGUN.ORG"]),
               "to": environ["EMAIL-TO"],
               # "cc": "xyzzzzzzzz@gmail.com",
               # "bcc": "xyzzzzzzzz@gmail.com",
