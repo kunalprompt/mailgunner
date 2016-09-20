@@ -5,7 +5,8 @@ from jinja2 import Environment, FileSystemLoader
 
 env = Environment(loader=FileSystemLoader('templates'))
 template = env.get_template('tracking_and_return_policy_template.html')
-msg = template.render(customer='CustName', order='OD304170123', tracking_id='track-kart-123a123b890')
+msg = template.render(customer='CustName', order='OD304170123',
+                        tracking_id='track-kart-123a123b890')
 
 
 def send_simple_message():
